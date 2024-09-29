@@ -28,5 +28,10 @@ namespace CSharp_Practice
         {
             Console.WriteLine($"Id - {Id}, Name - {Name}");
         }
+
+        public string GetData(string id, string name)
+        {
+            return $"{id} - {name}";
+        }
     }
 }

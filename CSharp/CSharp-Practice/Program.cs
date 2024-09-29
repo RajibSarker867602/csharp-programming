@@ -155,40 +155,78 @@ using System.Reflection;
 #endregion
 
 #region reflection example
-Type T = Type.GetType("CSharp_Practice.ReflectionClass");
-Console.WriteLine($"Full Name - {T.FullName}");
-Console.WriteLine($"Name - {T.Name}");
-Console.WriteLine($"Namespace - {T.Namespace}");
+//Type T = Type.GetType("CSharp_Practice.ReflectionClass");
+//Console.WriteLine($"Full Name - {T.FullName}");
+//Console.WriteLine($"Name - {T.Name}");
+//Console.WriteLine($"Namespace - {T.Namespace}");
 
-Console.WriteLine("Properties.......................");
-// properties
-PropertyInfo[] properties = T.GetProperties();
-foreach (PropertyInfo property in properties)
-{
-    Console.WriteLine($"{property.PropertyType} - {property.Name}");
-}
+//Console.WriteLine("Properties.......................");
+//// properties
+//PropertyInfo[] properties = T.GetProperties();
+//foreach (PropertyInfo property in properties)
+//{
+//    Console.WriteLine($"{property.PropertyType} - {property.Name}");
+//}
 
-Console.WriteLine("methods.......................");
-// methods
-MethodInfo[] methods = T.GetMethods();
-foreach (MethodInfo method in methods)
-{
-    Console.WriteLine($"{method.ReturnParameter} - {method.Name}");
-}
+//Console.WriteLine("methods.......................");
+//// methods
+//MethodInfo[] methods = T.GetMethods();
+//foreach (MethodInfo method in methods)
+//{
+//    Console.WriteLine($"{method.ReturnParameter} - {method.Name}");
+//}
 
-Console.WriteLine("fields.......................");
-// fields
-FieldInfo[] fields = T.GetFields();
-foreach (FieldInfo field in fields)
-{
-    Console.WriteLine($"{field.FieldType} - {field.Name}");
-}
+//Console.WriteLine("fields.......................");
+//// fields
+//FieldInfo[] fields = T.GetFields();
+//foreach (FieldInfo field in fields)
+//{
+//    Console.WriteLine($"{field.FieldType} - {field.Name}");
+//}
 
-Console.WriteLine("constructors.......................");
-// constructors
-ConstructorInfo[] constructors = T.GetConstructors();
-foreach (ConstructorInfo constructor in constructors)
-{
-    Console.WriteLine($"{constructor.ToString()}");
-}
+//Console.WriteLine("constructors.......................");
+//// constructors
+//ConstructorInfo[] constructors = T.GetConstructors();
+//foreach (ConstructorInfo constructor in constructors)
+//{
+//    Console.WriteLine($"{constructor.ToString()}");
+//}
+
+//Console.WriteLine("Late binding.......");
+//Assembly currentAssembly = Assembly.GetExecutingAssembly();
+//Type refType = currentAssembly.GetType("CSharp_Practice.ReflectionClass");
+//object obj = Activator.CreateInstance(refType);
+//MethodInfo methodInfo = obj.GetType().GetMethod("GetData");
+//string[] param = new string[2];
+//param[0] = "1";
+//param[1] = "Rajib";
+//object returnData = methodInfo.Invoke(obj, param);
+//Console.WriteLine(returnData);
 #endregion
+
+#region indexer example
+//IndexerClass indexerClass = new IndexerClass();
+//Console.WriteLine(indexerClass[1]);
+//indexerClass[1] = "Rajib Sarker";
+//Console.WriteLine(indexerClass[1]);
+//Console.WriteLine(indexerClass["R"]);
+#endregion
+
+#region multithreading example
+//DoSomething();
+Thread workerThread = new Thread(DoSomething);
+workerThread.Start();
+for (int i = 0; i < 10; i++)
+{
+    Console.WriteLine(i);
+}
+
+static void DoSomething()
+{
+    Thread.Sleep(5000);
+    Console.WriteLine("Hey wake up!!!");
+}
+
+#endregion
+
+
